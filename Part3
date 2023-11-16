@@ -1,0 +1,14 @@
+import json
+
+
+#  with open("Stage_3.json", "r") as json_file:
+#      ls_dict = json.load(json_file)
+ls_dict = json.loads(input())
+id_lst = []
+for i in ls_dict:
+    id_lst.append(i['bus_id'])
+
+occurrence = {item: id_lst.count(item) for item in id_lst}
+print('Line names and number of stops:')
+for key, value in occurrence.items():
+    print(f'bus_id: {key}, stops: {value}')
