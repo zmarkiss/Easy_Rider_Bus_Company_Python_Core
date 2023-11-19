@@ -1,0 +1,21 @@
+import json
+
+
+ls_dict = json.loads(input())
+
+ls_1 = []
+ls_2 = []
+
+for (i, n) in zip(ls_dict, ls_dict[1:]):
+    if i['bus_id'] == n['bus_id']:
+        #  print(i, n['bus_id'])
+        if bool(i['a_time'] <= n['a_time']) is False and n['bus_id'] not in ls_2:
+            ls_1.append((n['bus_id'], n['stop_name']))
+            ls_2.append(n['bus_id'])
+
+print(f'Arrival time test:')
+if not ls_1 == []:
+    for i in range(len(ls_1)):
+        print(f'bus_id line {ls_1[i][0]}: wrong time on station {ls_1[i][1]}')
+else:
+    print('OK')
