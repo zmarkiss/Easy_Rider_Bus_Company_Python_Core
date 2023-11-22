@@ -1,0 +1,20 @@
+import json
+
+
+ls_dict = json.loads(input())
+
+ls1 = []
+
+for i in ls_dict:
+    for n in ls_dict:
+        if i['stop_name'] == n['stop_name'] and i['stop_type'] != n['stop_type'] and i['stop_type'] == 'O':
+            ls1.append(i['stop_name'])
+
+ls1 = list(set(ls1))
+ls1 = sorted(ls1)
+
+print(f'On demand stops test:')
+if not ls1 == []:
+    print(f'Wrong stop type: {ls1}')
+else:
+    print('OK')
